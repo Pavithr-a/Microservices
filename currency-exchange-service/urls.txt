@@ -1,0 +1,17 @@
+Currency Exchange Service
+
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+Currency conversion service
+http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
+
+create table currency_exchange (conversion_multiple numeric(38,2), id bigint not null, environment varchar(255), from varchar(255), to varchar(255), primary key (id))
+2024-05-21T19:49:53.774+05:30  WARN 11556 --- [currency-exchange-service] [  restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table currency_exchange (conversion_multiple numeric(38,2), id bigint not null, environment varchar(255), from varchar(255), to varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table currency_exchange (conversion_multiple numeric(38,2), id bigint not null, environment varchar(255), [*]from varchar(255), to varchar(255), primary key (id))"; expected "identifier";]
+
+eureka server
+http://localhost:8761/
+
+API gateway
+http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/USD/to/INR
+http://localhost:8765/CURRENCY-CONVERSION/currency-conversion/from/USD/to/INR/quantity/10
+http://localhost:8765/CURRENCY-CONVERSION/currency-conversion-feign/from/USD/to/INR/quantity/10
